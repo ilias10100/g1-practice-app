@@ -1,7 +1,7 @@
 <?php
 $dsn = "mysql:host=127.0.0.1;port=3306;dbname=g1_practice;charset=utf8mb4";
 $username = "root";
-$password = "2006xyzTAAB/+";
+$password = "";
 
 try {
     $pdo = new PDO($dsn, $username, $password, [
