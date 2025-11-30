@@ -1,96 +1,148 @@
-1. Project Description and Features
-The G1 Practice Exam Application is a dynamic, user-friendly web application designed to help users prepare for their G1 driver's license knowledge test. Built on a robust PHP backend and MySQL database, the application provides a realistic exam environment, tracks user progress, and offers a comprehensive review system.
+# G1 Practice Exam App
 
-Key Features:
-- User Authentication: Secure login and registration for users (and administrators).
-- Realistic Exam: Fetches 40 random, active questions from the database for a timed practice test.
-- Progress Tracking: Users can view their total attempts, best score, and latest score on the dashboard.
-- Detailed Review System: (NEW) The My Attempts page and View Attempt page are fully styled with a professional dark theme, using green/red    indicators and highlighting to clearly show the correct answer versus the user's selected answer.
-- Visual Questions: Supports embedding images (e.g., traffic signs) directly into questions for enhanced learning.
-- Administrator Panel: Functionality to create, edit, and delete exam questions.
+This project is a simple web app to practice for the Ontario G1 written test.  
+Users can create an account, log in, take a 40-question practice exam, see their score, and review their previous attempts.
 
-2. Installation Instructions (XAMPP/Local Setup)
-This project is built using the LAMP/XAMPP stack (Linux/Windows/macOS, Apache, MySQL, PHP).
-- Install XAMPP: Download and install XAMPP (or MAMP/WAMP) on your local machine.
-- Clone the Repository: Clone this project into your XAMPP web root directory, typically: C:\xampp\htdocs\g1-practice-app
-- Start Services: Open the XAMPP Control Panel and start the Apache and MySQL services.
-- Database Setup: Proceed to the Database Setup Instructions section below.
-- Access App: Once the database is set up, open your web browser and navigate to: http://localhost/g1-practice-app/
+---
 
-3. Database Setup Instructions
-The application requires a MySQL database named g1_practice.
-- Create the Database:
-    - Open phpMyAdmin in your browser: http://localhost/phpmyadmin/
-    - Click the New link in the left sidebar.
-    - Enter g1_practice as the database name and click Create.
-- Create Tables
-    - Run the following SQL code in the SQL tab of your new g1_practice database to create the required tables (users, questions, exam_attempts, exam_answers).
+## Features
 
-    -- 1. USERS Table
-    CREATE TABLE users (
+- **User Registration & Login**  
+  Each user has their own account and exam history.
+
+- **40-Question Practice Exam**  
+  The app loads 40 G1-style multiple choice questions from a MySQL database.
+
+- **Automatic Grading**  
+  After submitting the exam, the app calculates the score and shows how many questions were correct.
+
+- **Attempt History**  
+  Users can see a list of all their previous exams and open any attempt to review the questions and their answers.
+
+---
+
+## Requirements
+
+- PHP 8+  
+- MySQL server (local)  
+- Apache (XAMPP/WAMP) or PHP built-in server  
+- A web browser
+
+---
+
+## Setup
+
+### 1. Put the project in your server folder
+
+For XAMPP:
+
+```text
+C:\xampp\htdocs\G1-app\
+Then the main files look like:
+
+index.php – home page
+
+login.php, register.php, logout.php
+
+dashboard.php – user stats + start exam
+
+start_exam.php, take_exam.php, submit_exam.php
+
+my_attempts.php, view_attempt.php
+
+includes/ – db_connect.php, auth.php, header.php, footer.php
+
+css/style.css
+
+2. Create the database and tables
+In MySQL (phpMyAdmin, VS Code, etc.), run:
+
+sql
+Copy code
+CREATE DATABASE g1_practice;
+USE g1_practice;
+
+CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    role ENUM('user', 'admin') DEFAULT 'user',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
+    name VARCHAR(100),
+    email VARCHAR(150) UNIQUE,
+    password_hash VARCHAR(255),
+    role ENUM('user') DEFAULT 'user',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
-    -- 2. QUESTIONS Table
-    CREATE TABLE questions (
+CREATE TABLE questions (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    question_text TEXT NOT NULL,
-    option_a VARCHAR(255) NOT NULL,
-    option_b VARCHAR(255) NOT NULL,
-    option_c VARCHAR(255) NOT NULL,
-    option_d VARCHAR(255) NOT NULL,
-    correct_option CHAR(1) NOT NULL, -- 'A', 'B', 'C', or 'D'
-    category VARCHAR(50) DEFAULT 'General',
-    image_path VARCHAR(255) DEFAULT NULL, -- NEW: For sign-based questions
-    is_active BOOLEAN DEFAULT TRUE
-    );
+    question_text TEXT,
+    option_a VARCHAR(255),
+    option_b VARCHAR(255),
+    option_c VARCHAR(255),
+    option_d VARCHAR(255),
+    correct_option ENUM('A','B','C','D'),
+    category VARCHAR(50),
+    is_active TINYINT(1) DEFAULT 1
+);
 
-    -- 3. EXAM_ATTEMPTS Table
-    CREATE TABLE exam_attempts (
+CREATE TABLE exam_attempts (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    started_at DATETIME NOT NULL,
+    user_id INT,
+    started_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     finished_at DATETIME,
-    total_questions INT DEFAULT 40,
-    score INT DEFAULT 0,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-    );
+    score INT,
+    total_questions INT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
 
-    -- 4. EXAM_ANSWERS Table
-    CREATE TABLE exam_answers (
+CREATE TABLE exam_answers (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    attempt_id INT NOT NULL,
-    question_id INT NOT NULL,
-    selected_option CHAR(1),
-    is_correct BOOLEAN NOT NULL,
-    FOREIGN KEY (attempt_id) REFERENCES exam_attempts(id) ON DELETE CASCADE,
-    FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE
-    );
+    attempt_id INT,
+    question_id INT,
+    selected_option ENUM('A','B','C','D'),
+    is_correct TINYINT(1),
+    FOREIGN KEY (attempt_id) REFERENCES exam_attempts(id),
+    FOREIGN KEY (question_id) REFERENCES questions(id)
+);
+Then insert the 40 G1 questions using the SQL script (the same one used in my setup).
 
-4. User Guide
-- Registration & Login:
-    - New users must register an account (register.php). They can then log in using their credentials (login.php).
-- Dashboard:
-    - After logging in, users are presented with a dashboard showing their latest stats and a prominent button to start a new exam.
-- Taking the Exam:
-    - The exam presents 40 random questions. Questions related to road signs will display the relevant image above the question text. 
-- Reviewing Attempts:
-    - The "My Attempts" page lists all past exams with a clear, color-coded status (PASS/REVIEW/FAIL). Clicking "View" takes the user to the review page.
-- Review Screen Features:
-    - Each question block is bordered Green if correct and Red if incorrect.
+3. Configure database connection
+Edit includes/db_connect.php and put your own MySQL info:
 
-5. Group Member Contributions
+php
+Copy code
+<?php
+$dsn = "mysql:host=127.0.0.1;dbname=g1_practice;charset=utf8mb4";
+$username = "root";                 // or your MySQL username
+$password = "YOUR_MYSQL_PASSWORD";  // your MySQL password
 
-Ilias Taabich
-Backend Core & Admin Management: Designed and implemented the initial Database Schema. Developed Core Authentication Logic (login.php, register.php). Implemented the full CRUD (Create, Read, Update, Delete) functionality for the Question Management pages.
+try {
+    $pdo = new PDO($dsn, $username, $password, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+Usage
+Start your server (Apache + MySQL if using XAMPP).
 
-Wiam Salam
-Aesthetic & System Integrity: Implemented the full, custom Dark Theme by writing and managing style.css. Resolved critical Database Date Depreciation Issues (my_attempts.php). Implemented the Image Path Support logic in both take_exam.php and view_attempt.php.
+Open the app in your browser:
 
-Aya Sahnoune
-Frontend Structure & Documentation: Established the Base HTML Structure for all application files (including integration of header.php and footer.php). Applied foundational Bootstrap Layout to core pages (e.g., Login/Register forms, Admin table). Gathered and compiled all project member ideas and wrote the content for the topic proposal file.
+text
+Copy code
+http://localhost/G1-app/
+Register a new user.
+
+Log in and click Start Exam on the dashboard.
+
+Answer all 40 questions and submit the exam.
+
+Check your score and use My Attempts to review older exams.
+
+Notes
+This project is for learning/practice only.
+
+It is not an official G1 exam, just a practice tool based on G1-style questions.
+
+pgsql
+Copy code
+
+You can just change the folder name or DB name if you and your friend use something slightly different.
