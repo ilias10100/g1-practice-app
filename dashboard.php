@@ -21,7 +21,7 @@ $stmt = $pdo->prepare("SELECT score, finished_at FROM exam_attempts WHERE user_i
 $stmt->execute([$user_id]);
 $latest = $stmt->fetch();
 
-// --- NEW PHP LOGIC: Calculate Best Score Percentage ---
+// Calculate Best Score Percentage 
 $total_questions = 40; 
 $best_score_display = $best_score !== null ? $best_score : 0;
 // Calculate the percentage, defaulting to 0 if no attempts have been made

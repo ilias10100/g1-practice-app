@@ -1,12 +1,8 @@
-/* ------------------------------
-   Global Styles (Dark Theme)
------------------------------- */
-
 body {
     /* Use a dark background color */
     background: #1e293b !important;
     font-family: 'Inter', "Segoe UI", Arial, sans-serif !important;
-    color: #f8fafc !important; /* Light text color */
+    color: #f8fafc !important;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -23,13 +19,9 @@ h1, h2, h3, h4 {
     margin-bottom: 40px !important;
 }
 
-/* ------------------------------
-   Navigation Bar (Header)
------------------------------- */
-
+/*Navigation Bar (Header) */
 .navbar {
     padding: 15px 25px !important;
-    /* Use a dark, slightly richer background */
     background-color: #0f172a !important; 
     box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
 }
@@ -38,7 +30,7 @@ h1, h2, h3, h4 {
     font-size: 1.4rem !important;
     font-weight: 700 !important;
     letter-spacing: 0.5px !important;
-    color: #94a3b8 !important; /* Slightly muted brand color */
+    color: #94a3b8 !important; 
 }
 
 .nav-link {
@@ -47,16 +39,12 @@ h1, h2, h3, h4 {
 }
 
 .nav-link:hover {
-    color: #3b82f6 !important; /* Blue hover accent */
+    color: #3b82f6 !important; 
 }
 
-/* ------------------------------
-   Cards (Dashboard, Results, Exam Blocks)
------------------------------- */
-
-/* Overriding the default Bootstrap card style for a dark theme */
+/*Cards (Dashboard, Results, Exam Blocks) */
 .card, .card-custom {
-    background: #334155 !important; /* Dark card background */
+    background: #334155 !important; 
     padding: 25px !important;
     border-radius: 12px !important;
     border: 1px solid #475569 !important;
@@ -71,7 +59,7 @@ h1, h2, h3, h4 {
 }
 
 .card h4 {
-    color: #3b82f6 !important; /* Blue accent for card titles */
+    color: #3b82f6 !important; S
     font-size: 1.5rem !important;
 }
 
@@ -80,84 +68,77 @@ h1, h2, h3, h4 {
 }
 
 
-/* ------------------------------
-   Buttons (Using a primary blue accent)
------------------------------- */
+/* Buttons (Using a primary blue accent)*/
 .btn {
-    /* Base styles for all buttons */
     padding: 12px 22px !important;
     font-weight: 600 !important;
-    border-radius: 10px !important; /* Slightly rounded corners */
+    border-radius: 10px !important; 
     font-size: 1rem !important;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.2s ease-in-out !important;
-    border-width: 2px !important; /* Thicker border for better visibility */
+    border-width: 2px !important; 
 }
 
 .btn-primary {
-    background-color: #3b82f6 !important; /* Tailwind Blue 500 */
+    background-color: #3b82f6 !important; 
     border-color: #3b82f6 !important;
     color: #f8fafc !important; 
-    /* Subtle Shadow for depth */
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
 }
 
 .btn-primary:hover {
-    background-color: #2563eb !important; /* Darker Blue on hover */
+    background-color: #2563eb !important; 
     border-color: #2563eb !important;
     transform: translateY(-2px); /* Lift effect */
     box-shadow: 0 6px 15px rgba(59, 130, 246, 0.6) !important;
 }
 
 .btn-success {
-    background-color: #d06f0e !important; /* Teal/Green 500 */
+    background-color: #d06f0e !important; 
     border-color: #d06f0e !important;
-    color: #0f172a !important; /* Dark text for contrast */
+    color: #0f172a !important; 
     box-shadow: 0 4px 12px rgba(103, 24, 6, 0.4) !important;
 }
 
 .btn-success:hover {
-    background-color: #e5a314 !important; /* Darker Green on hover */
+    background-color: #e5a314 !important; 
     border-color: #e5a314 !important;
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(193, 118, 26, 0.6) !important;
 }
 
 .btn-danger {
-    background-color: #ef4444 !important; /* Red 500 */
+    background-color: #ef4444 !important; 
     border-color: #ef4444 !important;
     color: #f8fafc !important;
 }
 
 .btn-danger:hover {
-    background-color: #dc2626 !important; /* Darker Red */
+    background-color: #dc2626 !important; 
     border-color: #dc2626 !important;
     transform: translateY(-1px);
 }
 
 .btn-outline-light {
-    color: #94a3b8 !important; /* Muted text color */
-    border-color: #475569 !important; /* Matches card border */
+    color: #94a3b8 !important; 
+    border-color: #475569 !important; 
     background-color: transparent !important;
 }
 
 .btn-outline-light:hover {
-    color: #3b82f6 !important; /* Blue text on hover */
+    color: #3b82f6 !important; 
     border-color: #3b82f6 !important;
-    background-color: rgba(59, 130, 246, 0.1) !important; /* Very subtle background hint */
+    background-color: rgba(59, 130, 246, 0.1) !important; 
 }
 
 .btn-sm {
-    padding: 6px 14px !important; /* Smaller padding */
+    padding: 6px 14px !important; 
     font-size: 0.85rem !important;
     border-radius: 8px !important;
 }
 
-/* ------------------------------
-   Forms (Login, Register, Create Q)
------------------------------- */
-
+/* Forms (Login, Register, Create Q) */
 form label {
     margin-top: 10px !important;
     font-weight: 600 !important;
@@ -170,7 +151,7 @@ select.form-control {
     border-radius: 10px !important;
     padding: 12px !important;
     border: 1px solid #475569 !important;
-    background-color: #475569 !important; /* Dark input background */
+    background-color: #475569 !important; 
     color: #f8fafc !important;
 }
 
@@ -183,20 +164,17 @@ select.form-control:focus {
 }
 
 
-/* ------------------------------
-   Exam Question Blocks (Take/View Exam)
------------------------------- */
-
+/* Exam Question Blocks (Take/View Exam) */
 .question-block {
     background: #334155 !important;
-    padding: 25px !important; /* Slightly more padding */
+    padding: 25px !important; 
     border-radius: 12px !important;
-    margin-bottom: 25px !important; /* More spacing between questions */
+    margin-bottom: 25px !important; 
     box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
 }
 
 .question-block h5 {
-    color: #3b82f6 !important; /* Blue accent for question numbers */
+    color: #3b82f6 !important; 
     font-size: 1.3rem !important;
     font-weight: 700 !important;
 }
@@ -212,16 +190,16 @@ select.form-control:focus {
     object-fit: contain;
     border: 1px solid #475569;
     border-radius: 8px;
-    background-color: #bcc6db; /* Dark background for transparent images */
+    background-color: #bcc6db; 
     padding: 10px;
 }
 
 .form-check-label {
-    color: #f8fafc !important; /* White text for options */
+    color: #f8fafc !important; 
     font-weight: 400 !important;
     font-size: 1.05rem !important;
     cursor: pointer;
-    padding-left: 10px; /* Space between radio button and text */
+    padding-left: 10px; 
 }
 
 .form-check-input {
@@ -229,23 +207,23 @@ select.form-control:focus {
     height: 1.25em !important;
     margin-top: 0.25em !important;
     vertical-align: top !important;
-    background-color: #475569 !important; /* Dark grey for unselected */
+    background-color: #475569 !important; 
     border: 1px solid #64748b !important;
-    border-radius: 50% !important; /* Ensure it's a circle */
-    appearance: none; /* Hide default radio button */
+    border-radius: 50% !important; 
+    appearance: none; 
     -webkit-appearance: none;
     -moz-appearance: none;
     transition: all 0.2s ease-in-out;
 }
 
 .form-check-input:checked {
-    background-color: #3b82f6 !important; /* Blue when checked */
+    background-color: #3b82f6 !important; 
     border-color: #3b82f6 !important;
-    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.4); /* Blue glow */
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.4); 
 }
 
 .form-check-input:focus {
-    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.4); /* Blue glow on focus */
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.4); 
 }
 
 /* Styles for the options group as a whole */
@@ -253,42 +231,40 @@ select.form-control:focus {
     padding: 12px 15px;
     border-radius: 8px;
     margin-bottom: 8px;
-    background-color: #475569; /* Slightly lighter background for each option */
+    background-color: #475569; 
     transition: background-color 0.1s ease, border-color 0.1s ease;
     border: 1px solid transparent;
 }
 
 .options-group .form-check:hover {
-    background-color: #64748b; /* Lighter on hover */
-    border-color: #3b82f6; /* Blue border on hover */
+    background-color: #64748b; 
+    border-color: #3b82f6; 
 }
 
 /* Correct / Incorrect styling for View Attempt */
 .border-success {
-    border-left: 6px solid #10b981 !important; /* Teal/Green Correct Accent */
+    border-left: 6px solid #10b981 !important; 
     background: #334155 !important;
     border-color: #10b981 !important;
 }
 
 .border-danger {
-    border-left: 6px solid #ef4444 !important; /* Red Incorrect Accent */
+    border-left: 6px solid #ef4444 !important; 
     background: #334155 !important;
     border-color: #ef4444 !important;
 }
 
-/* ------------------------------
-   Attempts Table (Admin/My Attempts)
------------------------------- */
+/* Attempts Table */
 
 .table {
     border-radius: 10px !important;
-    background: #334155 !important; /* Card/Body secondary color */
+    background: #334155 !important; 
     color: #f8fafc !important;
-    overflow: hidden; /* Ensures border-radius applies nicely */
+    overflow: hidden; 
 }
 
 .table thead {
-    background: #0f172a !important; /* Darkest Navy for header */
+    background: #0f172a !important; 
     color: #fff !important;
 }
 
@@ -297,7 +273,7 @@ select.form-control:focus {
 .table td {
     vertical-align: middle !important;
     text-align: center !important;
-    border-top: 1px solid #475569 !important; /* Subtle divider */
+    border-top: 1px solid #475569 !important; 
 }
 
 .table tbody tr {
@@ -305,12 +281,10 @@ select.form-control:focus {
 }
 
 .table tbody tr:hover {
-    background-color: #1e293b !important; /* Slightly lighter on hover */
+    background-color: #1e293b !important; 
 }
 
-/* ------------------------------
-   Score Badges (Status Colors)
------------------------------- */
+/* Score Badges (Status Colors) */
 .score-badge {
     display: inline-block;
     padding: 8px 14px !important;
@@ -320,39 +294,35 @@ select.form-control:focus {
     min-width: 80px;
 }
 
-/* Success (Passing Score: >= 32/40 or 80%) - Green/Teal */
+/* Success (Passing Score: >= 32/40 or 80%) - Green */
 .score-pass {
-    background-color: #10b981 !important; /* Green/Teal */
+    background-color: #10b981 !important; 
     color: #0f172a !important;
 }
 
-/* Warning (High score but just failed: 28-31/40 or 70-79%) - Orange/Yellow */
+/* Warning (High score but just failed: 28-31/40 or 70-79%) - Yellow */
 .score-warning {
-    background-color: #edd821 !important; /* Orange/Yellow */
+    background-color: #edd821 !important; 
     color: #0f172a !important;
 }
 
-/* Danger (Low score: < 28/40 or < 70%) - Red/Orange */
+/* Danger (Low score: < 28/40 or < 70%) - Red */
 .score-fail {
-    background-color: #ef4444 !important; /* Red */
+    background-color: #ef4444 !important; 
     color: #f8fafc !important;
 }
 
 
-/* ------------------------------
-   Utility Image in Card
------------------------------- */
+/* Utility Image in Card */
 .card-image-sm {
-    border: 1px solid #475569; /* Subtle border */
+    border: 1px solid #475569; 
     border-radius: 8px;
-    padding: 10px; /* Internal padding for the image */
+    padding: 10px; 
     background-color: #1e59d7;
     
 }
 
-/* ------------------------------
-   Circle Progress Bar
------------------------------- */
+/* Progress Bar */
 .score-percentage-display {
     text-align: center;
     margin-top: 15px;
@@ -361,27 +331,26 @@ select.form-control:focus {
 
 .circle-progress {
     position: relative;
-    width: 120px; /* Size of the circle */
+    width: 120px; 
     height: 120px;
     border-radius: 50%;
     background: radial-gradient(closest-side, #334155 78%, transparent 80% 100%),
-                conic-gradient(#3b82f6 var(--progress), #475569 0); /* Blue for progress, dark grey for remainder */
+                conic-gradient(#3b82f6 var(--progress), #475569 0); 
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #e2e8f0; /* Text color */
+    color: #e2e8f0; 
     margin: 0 auto;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); /* Subtle blue glow */
-    animation: progress-animation 1s ease-out forwards; /* Animate on load */
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); 
+    animation: progress-animation 1s ease-out forwards; 
 }
 
 .circle-progress span {
-    z-index: 2; /* Ensure text is above background */
+    z-index: 2; 
 }
 
-/* Fallback for browsers that don't support conic-gradient (or for initial state) */
 .circle-progress::before {
     content: '';
     position: absolute;
@@ -390,44 +359,40 @@ select.form-control:focus {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: #475569; /* Base grey */
-    z-index: 1; /* Behind the text */
+    background-color: #475569; 
+    z-index: 1; 
 }
 
-/* Hide fallback if conic-gradient is supported */
 @supports (background: conic-gradient(red, blue)) {
     .circle-progress::before {
         display: none;
     }
 }
 
-/* ------------------------------
-   Review Attempt Page Styles
------------------------------- */
 
 /* Overall Question Block Styling */
 .question-review-block {
     position: relative;
-    border-left-width: 8px !important; /* Thick left border for status */
+    border-left-width: 8px !important; 
     border-left-style: solid !important;
     padding: 25px !important;
-    background: #334155 !important; /* Matches Exam/Attempts card background */
+    background: #334155 !important; 
     border-radius: 12px !important;
 }
 
 /* Correct Question Styles */
 .review-correct {
-    border-left-color: #10b981 !important; /* Teal/Green */
-    background-color: #2c443f !important; /* Darker subtle background for correct */
+    border-left-color: #10b981 !important; 
+    background-color: #2c443f !important; 
 }
 
 /* Incorrect Question Styles */
 .review-incorrect {
-    border-left-color: #ef4444 !important; /* Red */
-    background-color: #4a3434 !important; /* Darker subtle background for incorrect */
+    border-left-color: #ef4444 !important; 
+    background-color: #4a3434 !important; 
 }
 
-/* Status Label (CORRECT/INCORRECT pill) */
+/* Status Label (CORRECT/INCORRECT) */
 .status-label {
     font-size: 1rem;
     padding: 4px 10px;
@@ -446,7 +411,7 @@ select.form-control:focus {
 
 /* Image container styling */
 .review-image-container {
-    background: #1e293b; /* Dark background to match image area on exam page */
+    background: #1e293b; 
     border-radius: 8px;
     padding: 15px;
 }
@@ -455,41 +420,34 @@ select.form-control:focus {
     width: auto;
 }
 
-/* ------------------------------
-   Individual Option Highlighting
------------------------------- */
-
-/* General Option Box Style (Inherited from take_exam.php options-group .form-check) */
 .options-group .form-check {
     padding: 12px 15px;
     border-radius: 8px;
     margin-bottom: 8px;
-    background-color: #475569; /* Matches unselected option box */
+    background-color: #475569; 
     border: 1px solid transparent;
     transition: all 0.2s ease;
 }
 
-/* The Correct Option (Green Background) */
+
 .question-review-block .option-correct {
-    background-color: #059669 !important; /* Dark Green */
+    background-color: #059669 !important;
     border-color: #10b981 !important;
     font-weight: 600;
 }
 
-/* The Wrongly Selected Option (Red Background) */
 .question-review-block .option-wrong {
-    background-color: #b91c1c !important; /* Dark Red */
+    background-color: #b91c1c !important; 
     border-color: #ef4444 !important;
     font-weight: 600;
 }
 
-/* Icon Colors (Check/X) */
 .question-review-block .fa-check-circle {
-    color: #ccffcc !important; /* Brighter green for the icon */
+    color: #ccffcc !important; 
     font-size: 1.2rem;
 }
 .question-review-block .fa-times-circle {
-    color: #ffcccc !important; /* Brighter red for the icon */
+    color: #ffcccc !important;
     font-size: 1.2rem;
 }
 
